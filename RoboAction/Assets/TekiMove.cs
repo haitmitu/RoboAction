@@ -9,6 +9,7 @@ public class TekiMove : MonoBehaviour
     bool mo;
     public Vector3 startP;
     float startA=10;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
