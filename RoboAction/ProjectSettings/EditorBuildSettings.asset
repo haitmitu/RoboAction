@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/HatimituAssets/Scenes/Title Scene.unity
+    guid: 4bb4edd2b29163947b6243d8ef8cabf8
+  - enabled: 1
+    path: Assets/HatimituAssets/Scenes/HatimituScenes 1.unity
+    guid: fa10dfb1e0c25b040a3536dcdd10fa6b
+  - enabled: 1
+    path: Assets/HatimituAssets/Scenes/a Scene.unity
+    guid: 6c346c3b0686e484c8e6de16af5bb435
   m_configObjects: {}

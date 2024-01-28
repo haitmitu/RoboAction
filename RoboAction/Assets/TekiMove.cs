@@ -8,7 +8,6 @@ public class TekiMove : MonoBehaviour
     public Transform teki, pl;
     bool mo;
     public Vector3 startP;
-    float startA=10;
     public Animator animator;
     // Start is called before the first frame update
     void Start()
@@ -28,7 +27,7 @@ public class TekiMove : MonoBehaviour
         }
         else
         {
-            if (teki.position.x <= startA + startP.x&& teki.position.x >=startP.x- startA && teki.position.z <= startA + startP.z && teki.position.z >= startP.z - startA)
+            if (Vector3.Distance(teki.position,startP)<=10)
             {
                 Look();
             }
@@ -40,6 +39,7 @@ public class TekiMove : MonoBehaviour
     }
     public void Look()
     {
+        animator.SetTrigger("look");
         if (Vector3.Distance(teki.position, pl.position)<=30)
         {
             teki.rotation = Quaternion.LookRotation(new Vector3(pl.position.x, 0, pl.position.z) - new Vector3(teki.position.x, 0, teki.position.z));
@@ -54,8 +54,15 @@ public class TekiMove : MonoBehaviour
     {
         if (Vector3.Distance(teki.position, pl.position) >= 4)
         {
+            animator.SetTrigger("walk");
             teki.rotation = Quaternion.LookRotation(new Vector3(pl.position.x,0,pl.position.z) - new Vector3(teki.position.x, 0, teki.position.z));
             teki.position += teki.forward * Time.deltaTime*8;
+        }
+        else
+        {
+            animator.SetTrigger("idle");
+
+            
         }
         if (Vector3.Distance(teki.position, pl.position) >= 40)
         {
@@ -64,6 +71,7 @@ public class TekiMove : MonoBehaviour
     }
     public void Walk()
     {
+        animator.SetTrigger("walk");
         teki.rotation = Quaternion.LookRotation(new Vector3(startP.x, 0, startP.z) - new Vector3(teki.position.x, 0, teki.position.z));
         teki.position += teki.forward * Time.deltaTime * 8;
     }

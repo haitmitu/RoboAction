@@ -58,8 +58,6 @@ public class UIhp : MonoBehaviour
     // Start is called before the first frame update
     public void Starts()
     {
-        maxHp = 10;
-        hp = maxHp;
     }
     public void HP()
     {
